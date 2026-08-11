@@ -1,33 +1,13 @@
-# Catálogo de Videojuegos - Laboratorio
+# Catálogo de Videojuegos - Node.js + Express + EJS + SQLite
 
-Proyecto realizado con Node.js, Express y EJS.
+Base de datos relacional SQLite usando el driver sqlite3.
 
-## Ejecutar
+Tablas: desarrolladores y videojuegos.
+Foreign key: videojuegos.desarrollador_id -> desarrolladores.id.
+Los datos se consultan mediante INNER JOIN y se muestran con EJS.
 
-```bash
+Ejecutar:
 npm install
 npm start
-```
 
-Abrir: http://localhost:3000/juegos
-
-## Rutas
-
-- `/juegos` - listado
-- `/juegos/1` - detalle dinámico
-- `/juegos/2` - detalle dinámico
-- `/juegos/3` - detalle dinámico
-- `/juegos/4` - detalle dinámico
-
-## Requisitos cubiertos
-
-- Colección de 4 elementos.
-- Identificador único.
-- Campo anidado: desarrollador.
-- Campo numérico: existencias.
-- Header y footer reutilizables con EJS partials.
-- Listado generado con `forEach`.
-- Ruta dinámica `/juegos/:id`.
-- Condicional EJS para Disponible/Agotado.
-- HTML5 semántico.
-- Flexbox en el catálogo y detalle.
+URL: http://localhost:3000/juegos

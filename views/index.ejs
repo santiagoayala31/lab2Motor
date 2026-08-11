@@ -1,17 +1,11 @@
 <%- include("partials/header", { titulo: "Catálogo | GameZone" }) %>
-
 <section class="hero">
   <p class="etiqueta">CATÁLOGO DE VIDEOJUEGOS</p>
   <h1>Encuentra tu próximo juego</h1>
-  <p>Explora nuestro catálogo y entra al detalle de cada videojuego.</p>
+  <p>Los datos se cargan desde una base de datos SQLite mediante una consulta SQL con relación entre tablas.</p>
 </section>
-
 <section>
-  <div class="titulo-seccion">
-    <h2>Videojuegos disponibles</h2>
-    <span><%= videojuegos.length %> títulos</span>
-  </div>
-
+  <div class="titulo-seccion"><h2>Videojuegos</h2><span><%= videojuegos.length %> títulos</span></div>
   <div class="grid-juegos">
     <% videojuegos.forEach((juego) => { %>
       <article class="card">
@@ -19,7 +13,8 @@
         <div class="card-contenido">
           <span class="genero"><%= juego.genero %></span>
           <h3><%= juego.nombre %></h3>
-          <p>Desarrollador: <strong><%= juego.desarrollador.nombre %></strong></p>
+          <p>Desarrollador: <strong><%= juego.desarrollador_nombre %></strong></p>
+          <p>País: <%= juego.desarrollador_pais %></p>
           <p class="precio">$<%= juego.precio.toLocaleString("es-CO") %></p>
           <a class="boton" href="/juegos/<%= juego.id %>">Ver detalle</a>
         </div>
@@ -27,5 +22,4 @@
     <% }) %>
   </div>
 </section>
-
 <%- include("partials/footer") %>
