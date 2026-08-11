@@ -1,0 +1,31 @@
+<%- include("partials/header", { titulo: "Catálogo | GameZone" }) %>
+
+<section class="hero">
+  <p class="etiqueta">CATÁLOGO DE VIDEOJUEGOS</p>
+  <h1>Encuentra tu próximo juego</h1>
+  <p>Explora nuestro catálogo y entra al detalle de cada videojuego.</p>
+</section>
+
+<section>
+  <div class="titulo-seccion">
+    <h2>Videojuegos disponibles</h2>
+    <span><%= videojuegos.length %> títulos</span>
+  </div>
+
+  <div class="grid-juegos">
+    <% videojuegos.forEach((juego) => { %>
+      <article class="card">
+        <img src="<%= juego.imagen %>" alt="<%= juego.nombre %>">
+        <div class="card-contenido">
+          <span class="genero"><%= juego.genero %></span>
+          <h3><%= juego.nombre %></h3>
+          <p>Desarrollador: <strong><%= juego.desarrollador.nombre %></strong></p>
+          <p class="precio">$<%= juego.precio.toLocaleString("es-CO") %></p>
+          <a class="boton" href="/juegos/<%= juego.id %>">Ver detalle</a>
+        </div>
+      </article>
+    <% }) %>
+  </div>
+</section>
+
+<%- include("partials/footer") %>

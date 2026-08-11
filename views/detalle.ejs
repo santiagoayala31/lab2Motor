@@ -1,0 +1,32 @@
+<%- include("partials/header", { titulo: videojuego.nombre }) %>
+
+<section class="detalle">
+  <a href="/juegos" class="volver">← Volver al catálogo</a>
+
+  <div class="detalle-contenido">
+    <div>
+      <img class="detalle-imagen" src="<%= videojuego.imagen %>" alt="<%= videojuego.nombre %>">
+    </div>
+
+    <article class="detalle-info">
+      <span class="genero"><%= videojuego.genero %></span>
+      <h1><%= videojuego.nombre %></h1>
+      <p class="descripcion"><%= videojuego.descripcion %></p>
+
+      <div class="datos">
+        <p><strong>Precio:</strong> $<%= videojuego.precio.toLocaleString("es-CO") %></p>
+        <p><strong>Desarrollador:</strong> <%= videojuego.desarrollador.nombre %></p>
+        <p><strong>País:</strong> <%= videojuego.desarrollador.pais %></p>
+        <p><strong>Existencias:</strong> <%= videojuego.existencias %></p>
+      </div>
+
+      <% if (videojuego.existencias > 0) { %>
+        <div class="estado disponible">✓ Disponible para compra</div>
+      <% } else { %>
+        <div class="estado agotado">✕ Producto agotado</div>
+      <% } %>
+    </article>
+  </div>
+</section>
+
+<%- include("partials/footer") %>
